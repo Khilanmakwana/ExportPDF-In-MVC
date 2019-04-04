@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="@Url.Content("~/Content/css/Style.css")" type="text/css" rel="stylesheet">
+</head>
+<body>
+   <h3>List Product</h3>
+   <table cellpadding="2" cellspacing="2" border="1">
+       <tr>
+           <th>Id</th>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Photo</th>
+       </tr>
+       @foreach (var product in ViewBag.listproducts)
+       {
+           <tr>
+
+                <td><span class="product_name">@product.Id</span></td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td><img src="@Url.Content("~/Content/")Images/@product.Photo"/></td>
+            </tr>
+       }
+   </table>
+    <br/><br/>
+    <a href="@Url.Action("ExportPDF","Home")">Export PDF</a>
+</body>
+</html>
